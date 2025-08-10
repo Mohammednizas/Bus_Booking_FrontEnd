@@ -1,0 +1,642 @@
+/* ======== Global Reset ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Bus_App{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    
+}
+/* ======== Navigation Bar ======== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:90px;
+  background: linear-gradient(90deg, #006400, #00a651); /* dark to light green */
+  color: white;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  font-family: 'Segoe UI', sans-serif;
+  
+}
+
+/* Title */
+.nav-title li {
+  list-style: none;
+  font-size: 24px;
+  font-weight: bold;
+  
+  letter-spacing: 1.5px;
+}
+
+/* Navigation Links */
+.nav-side-title {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+   font-size: 18px;
+   text-transform: capitalize;
+   font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+
+.hide,.whole{
+  position:absolute;
+  right:25px;
+  top:20px;
+  cursor:pointer;
+  display:none;
+  padding:5px;
+}
+.hide li{
+  list-style: none;
+}
+.link:hover,.hide:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color:black;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+/* ======== Mobile Responsive ======== */
+@media (max-width: 768px) {
+  .nav{
+    flex-direction: column;
+    align-items: flex-start;
+    height:auto;
+    padding: 15px;
+    
+  }
+  .nav-side-title {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    display:none;
+  }
+  .hide{
+  display:block;
+  }
+  .link {
+    display: block;
+    width: 100%;
+  }
+  .nav:hover .block{
+    display:block;
+  }
+}
+/* ======== Content Section ======== */
+.content {
+  width:100%;
+  height:100vh;
+  overflow: hidden;
+  display: grid;
+  gap:40px;
+  place-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #e6ffe6, #ccffcc);
+}
+
+/* ======== Bus Animation ======== */
+.bus-moving {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: busDrive 6s linear infinite;
+}
+
+.bus {
+  width: 220px;
+  height: 120px;
+  background: #008000;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Bus Glass */
+.bus-glass {
+  width: 60px;
+  height: 50px;
+  background: #cce5ff;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-radius: 8px;
+  border: 2px solid #004d00;
+}
+
+/* Bus Name */
+.busName {
+  position: absolute;
+  top: 45px;
+  left: 90px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Tyres */
+.tyre {
+  position: absolute;
+  bottom: -18px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.left-tyre,
+.right-tyre {
+  width: 35px;
+  height: 35px;
+  background: #333;
+  border-radius: 50%;
+  border: 3px solid #111;
+}
+
+/* ======== Bus Moving Animation ======== */
+@keyframes busDrive {
+  0% { transform: translateX(-300px); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(300px); }
+}
+
+/* ======== Welcome Text ======== */
+.content-moving {
+  margin-top: 40px;
+  padding:20px;
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1.5s ease-in-out;
+  
+  border-radius: 10px;
+}
+
+.content-moving span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #006400;
+  margin-bottom: 10px;
+}
+
+/* ======== Fade In Animation ======== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 768px) {
+  .bus {
+    width: 160px;
+    height: 90px;
+  }
+
+  .busName {
+    font-size: 12px;
+    left: 70px;
+  }
+
+  .content-moving {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+}
+/* ====== LOGIN PAGE CONTAINER ====== */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* space for fixed nav */
+  background: linear-gradient(135deg, #e6ffe6, #ccffcc);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+/* ====== LOGIN FORM ====== */
+.login form {
+  background: #ffffff;
+  padding: 60px 40px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #0f3d0f, #1e6f1e);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* ====== INPUT FIELDS ====== */
+.login input[type="text"],
+.login input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  outline: none;
+  transition: 0.3s ease;
+  font-size: 15px;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  border-color: #1e6f1e;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+}
+
+
+
+
+/* ====== SUBMIT BUTTON ====== */
+.login button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom:20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1e6f1e, #28a745);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login button:hover {
+  background: linear-gradient(90deg, #28a745, #1e6f1e);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+}
+
+/* ====== SIGN-IN LINK ====== */
+.login .link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #1e6f1e;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.login .link:hover {
+  color: #28a745;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+/* ====== POPUP ====== */
+.pop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:350px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  padding: 25px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0f3d0f, #1e6f1e);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  text-align: center;
+  color:white;
+  font-size: 20px;
+  display: grid;
+  place-content: center;
+  text-transform: capitalize;
+  word-spacing: 5px;;
+  letter-spacing: 1px;
+  line-height: 50px;;
+}
+
+.pop-but button {
+  background: #1e6f1e;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pop-but button:hover {
+  background: #28a745;
+}
+
+/* ====== ANIMATION ====== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Booking Page Styling */
+.booking,.admin{
+  padding: 100px 20px 40px; /* Top padding for fixed navbar space */
+  background: linear-gradient(135deg, #e6ffe6, #ccffcc);
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-y: scroll;
+  position:relative;
+}
+.admin{
+  overflow: hidden;
+}
+
+/* Header */
+.Booking-head {
+  display: flex;
+  flex-direction: column;
+  gap:40px;
+  
+  align-items: center;
+  
+  padding: 15px 20px;
+  border-radius: 8px;
+  color:black;
+  text-transform: capitalize;
+  word-spacing: 5px;;
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: bolder;
+  
+}
+
+.Booking-head h4 {
+  margin: 0;
+}
+
+.Booking-head button {
+  background: linear-gradient(90deg, #1e6f1e, #28a745);
+  border: none;
+  padding: 20px 20px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  word-spacing: 2px;;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.Booking-head button:hover {
+  background: #28a428;
+  transform: scale(1.05);
+}
+
+/* Bus List Container */
+.booking-site {
+  min-width:350px;
+  width:80%;
+  margin:auto;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  color:white;
+  font-weight: bold;
+}
+
+/* Individual Bus Card */
+.booking-site div {
+  background: linear-gradient(90deg, #1e6f1e, #28a745);
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #32cd32;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  transition: 0.3s;
+
+}
+
+.booking-site div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.7);
+}
+
+/* Bus Card Headings */
+.booking-site h3 {
+  color:yellow;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Paragraph styling */
+.booking-site p {
+  margin: 15px 0;
+  font-size:18px;
+  color: white;
+}
+
+/* Book Button */
+.booking-site button {
+    background-color: yellow;
+  border: none;
+  padding: 8px 8px;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+  padding:20px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.booking-site button:hover {
+  transform: scale(1.05);
+}
+
+/* Pop-up message */
+
+/* Admin Navigation */
+/* Admin Navigation */
+.admin nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:90px;
+  background: linear-gradient(90deg, #0f5132, #198754);
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 255, 128, 0.3);
+}
+
+.admin nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.admin nav li{
+  list-style: none;
+}
+
+.admin nav a,
+.admin nav button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.admin nav a:hover,
+.admin nav button:hover {
+  background: rgba(0, 255, 128, 0.2);
+  box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+}
+
+
+
+/* No Access Message */
+.no-access {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #b02a37;
+}
+
+/* Push content below fixed nav */
+.admin > *:not(nav) {
+  margin-top: 70px;
+}
+.adminbooking {
+  margin-top: 90px; /* pushes below fixed nav */
+  padding: 20px;
+  background: linear-gradient(135deg, #e6ffe6, #ccffcc);
+  height: 100vh;
+  width:100vw;
+  overflow-x: hidden;
+}
+
+.adminbooking table {
+  width:80%;
+  min-width:350px;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 255, 128, 0.2);
+  border-radius: 8px;
+ max-height:70vh;
+  overflow-y: scroll;
+  margin:auto;
+}
+
+.adminbooking th {
+  background: linear-gradient(90deg, #0f5132, #198754);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.adminbooking td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.adminbooking tr:hover {
+  background: rgba(0, 255, 128, 0.05);
+}
+.no-bookings {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #b02a37;
+}
+
+.book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+    overflow-y: scroll;
+background: linear-gradient(135deg, #e6ffe6, #ccffcc);
+  padding: 20px;
+}
+
+.book form {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 128, 0, 0.4); /* green shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.book label {
+  font-weight: bold;
+  color: #065f46; /* deep green */
+}
+
+.book input {
+  padding: 10px;
+  border: 2px solid #9ae6b4; /* light green border */
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.book input:focus {
+  border-color: #38a169; /* medium green */
+  box-shadow: 0 0 8px rgba(56, 161, 105, 0.6); /* green glow on focus */
+}
+
+.book button {
+  padding: 12px;
+  background: #38a169;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book button:hover {
+  background: #2f855a;
+}
